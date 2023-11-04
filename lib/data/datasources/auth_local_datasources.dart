@@ -30,7 +30,7 @@ class AuthLocalDatasource {
     return authJson.isNotEmpty;
   }
 
-  Future<User> getUser(String s) async {
+  Future<User> getUser() async {
     final pref = await SharedPreferences.getInstance();
     final jsonString = pref.getString('auth') ?? '';
     final authModel = AuthResponseModel.fromJson(jsonString);

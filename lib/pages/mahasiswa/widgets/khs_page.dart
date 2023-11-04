@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:siakad_indra/bloc/khs/khs_bloc.dart';
+import 'package:siakad_indra/data/datasources/auth_local_datasources.dart';
+import 'package:siakad_indra/data/models/response/auth_response_model.dart';
 import '../../../common/constants/colors.dart';
 import '../../../common/widgets/row_text.dart';
 
@@ -59,18 +61,37 @@ class _KhsPageState extends State<KhsPage> {
               leading: ClipRRect(
                 borderRadius: const BorderRadius.all(Radius.circular(50.0)),
                 child: Image.network(
-                  'https://assets.ayobandung.com/crop/0x0:0x0/750x500/webp/photo/2021/12/15/1405406409.jpg',
+                  'https://lh3.googleusercontent.com/a/ACg8ocJxpra2ZCN9PFP64VYPlvYTGnu-gjIgtWE0oWC4jzNcZ4U=s96-p-k-rw-no',
                   width: 40,
                   height: 40,
                   fit: BoxFit.cover,
                 ),
               ),
-              title: const Text(
-                "Jesica Jane",
-                style: TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.w700,
-                ),
+              title: FutureBuilder(
+                future: AuthLocalDatasource().getUser(),
+                initialData: "Loading",
+                builder: (ctx, snapshot) {
+                  if (snapshot.connectionState == ConnectionState.done) {
+                    if (snapshot.hasError) {
+                      return Center(
+                        child: Text(
+                          '${snapshot.error} occurred',
+                          style: const TextStyle(fontSize: 18),
+                        ),
+                      );
+                    } else if (snapshot.hasData) {
+                      final data = snapshot.data as User;
+                      return Text(
+                        data.name,
+                        style: const TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.w700,
+                        ),
+                      );
+                    }
+                  }
+                  return const SizedBox();
+                },
               ),
               subtitle: const Text(
                 "Mahasiswa",

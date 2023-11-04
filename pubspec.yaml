@@ -27,6 +27,7 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
+  blinking_text: ^1.0.2
   cupertino_icons: ^1.0.2
   dartz: ^0.10.1
   flutter:
@@ -38,6 +39,7 @@ dependencies:
   geolocator: ^10.1.0
   google_maps_flutter: ^2.5.0
   http: ^1.1.0
+  intl: ^0.18.1
   location: ^5.0.3
   mobile_scanner: ^3.5.2
   shared_preferences: ^2.2.1

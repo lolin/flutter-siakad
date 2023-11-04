@@ -33,6 +33,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.11.0"
+  blinking_text:
+    dependency: "direct main"
+    description:
+      name: blinking_text
+      sha256: "3f0c300f9f67ff3455e303a7dea7825bd96965d17295e4e831f29040c0379e69"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.0.2"
   bloc:
     dependency: transitive
     description:
@@ -480,6 +488,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "4.0.2"
+  intl:
+    dependency: "direct main"
+    description:
+      name: intl
+      sha256: "3bc132a9dbce73a7e4a21a17d06e1878839ffbf975568bc875c60537824b0c4d"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.18.1"
   io:
     dependency: transitive
     description:
