@@ -110,7 +110,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                   Text(
                                     getCurrentDate(),
                                     style: const TextStyle(
-                                      fontSize: 8,
+                                      fontSize: 9,
                                       fontWeight: FontWeight.w500,
                                     ),
                                   ),

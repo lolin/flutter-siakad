@@ -13,6 +13,7 @@ import '../../common/widgets/custom_scaffold.dart';
 import '../../data/datasources/auth_local_datasources.dart';
 import '../../data/models/response/auth_response_model.dart';
 
+// import 'package:geolocator/geolocator.dart';
 class AbsensiPage extends StatefulWidget {
   const AbsensiPage({super.key});
 
@@ -217,16 +218,43 @@ class _AbsensiPageState extends State<AbsensiPage> {
                   stream: Stream.periodic(const Duration(seconds: 1), (i) => i),
                   builder: (context, snapshot) {
                     final currentTime = DateTime.now();
-                    final formattedTime =
-                        "${currentTime.hour.toString().padLeft(2, '0')}:${currentTime.minute.toString().padLeft(2, '0')} WIB";
+                    // final formattedTime =
+                    //     "${currentTime.hour.toString().padLeft(2, '0')}:${currentTime.minute.toString().padLeft(2, '0')} WIB";
+                    final formattedHour =
+                        "${currentTime.hour.toString().padLeft(2, '0')} ";
+                    final formattedMinute =
+                        " ${currentTime.minute.toString().padLeft(2, '0')} WIB";
 
-                    return Text(
-                      formattedTime,
-                      style: const TextStyle(
-                        fontSize: 32,
-                        fontWeight: FontWeight.w700,
-                        color: Colors.blue, // Ganti dengan warna yang sesuai
-                      ),
+                    return Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          formattedHour,
+                          style: const TextStyle(
+                            fontSize: 32,
+                            fontWeight: FontWeight.w700,
+                            color:
+                                Colors.blue, // Ganti dengan warna yang sesuai
+                          ),
+                        ),
+                        const BlinkText(
+                          ':',
+                          style: TextStyle(
+                              fontSize: 32.0,
+                              color: Color.fromARGB(255, 253, 253, 253)),
+                          endColor: Colors.blue,
+                          duration: Duration(milliseconds: 1000),
+                        ),
+                        Text(
+                          formattedMinute,
+                          style: const TextStyle(
+                            fontSize: 32,
+                            fontWeight: FontWeight.w700,
+                            color:
+                                Colors.blue, // Ganti dengan warna yang sesuai
+                          ),
+                        ),
+                      ],
                     );
                   },
                 ),
