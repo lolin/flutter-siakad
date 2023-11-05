@@ -13,7 +13,6 @@ import '../../common/widgets/custom_scaffold.dart';
 import '../../data/datasources/auth_local_datasources.dart';
 import '../../data/models/response/auth_response_model.dart';
 
-// import 'package:geolocator/geolocator.dart';
 class AbsensiPage extends StatefulWidget {
   const AbsensiPage({super.key});
 
@@ -219,11 +218,11 @@ class _AbsensiPageState extends State<AbsensiPage> {
                   builder: (context, snapshot) {
                     final currentTime = DateTime.now();
                     // final formattedTime =
-                    //     "${currentTime.hour.toString().padLeft(2, '0')}:${currentTime.minute.toString().padLeft(2, '0')} WIB";
+                    // "${currentTime.hour.toString().padLeft(2, '0')}:${currentTime.minute.toString().padLeft(2, '0')} WIB";
                     final formattedHour =
-                        "${currentTime.hour.toString().padLeft(2, '0')} ";
+                        "${currentTime.hour.toString().padLeft(2, '0')}";
                     final formattedMinute =
-                        " ${currentTime.minute.toString().padLeft(2, '0')} WIB";
+                        "${currentTime.minute.toString().padLeft(2, '0')} WIB";
 
                     return Row(
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -238,12 +237,15 @@ class _AbsensiPageState extends State<AbsensiPage> {
                           ),
                         ),
                         const BlinkText(
-                          ':',
+                          ' : ',
                           style: TextStyle(
-                              fontSize: 32.0,
-                              color: Color.fromARGB(255, 253, 253, 253)),
+                            fontSize: 32.0,
+                            fontWeight: FontWeight.w800,
+                            color: Colors.blue,
+                          ),
+                          beginColor: Color.fromARGB(255, 244, 243, 243),
                           endColor: Colors.blue,
-                          duration: Duration(milliseconds: 1000),
+                          duration: Duration(seconds: 1),
                         ),
                         Text(
                           formattedMinute,
@@ -265,7 +267,7 @@ class _AbsensiPageState extends State<AbsensiPage> {
           SizedBox(
             height: 184.0,
             child: latitude == null
-                ? const SizedBox()
+                ? const Center(child: CircularProgressIndicator())
                 : GoogleMap(
                     onMapCreated: _onMapCreated,
                     initialCameraPosition: CameraPosition(
