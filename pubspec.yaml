@@ -58,7 +58,7 @@ flutter_native_splash:
   android_12:
     color: "#ffffff"
     icon_background_color: "#ffffff"
-    image: assets/images/logo.png
+    image: assets/images/splash-siakad.png
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 # The following section is specific to Flutter packages.
